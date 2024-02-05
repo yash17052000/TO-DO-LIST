@@ -28,7 +28,17 @@ button.addEventListener('click', function (e) {
 
         // Create a span to display the task text
         checkbox.addEventListener('change', function () {
-            taskSpan.style.textDecoration = checkbox.checked ? 'line-through' : 'none';
+            if (checkbox.checked) {
+                taskSpan.style.textDecoration = 'line-through';
+                checkbox.setAttribute('checked', 'checked');
+
+                //UnCheck
+
+            } else {
+                taskSpan.style.textDecoration = 'none';
+                checkbox.removeAttribute('checked');
+            }
+
             // Save data when checkbox state changes
             saveData()
         });
